@@ -65,11 +65,14 @@ public class LivroController {
     //deletar por id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
-        try{
-            ls.delete(id);
-            return ResponseEntity.noContent().build();
-        } catch(NoSuchElementException e){
-            return ResponseEntity.badRequest().build();
+        Optional<Livro> livro = ls.findById(id);
+        if(livro.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+        boolean deletado = ls.delete(id);
+        if (!deletado) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
