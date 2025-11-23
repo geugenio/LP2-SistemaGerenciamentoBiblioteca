@@ -1,0 +1,29 @@
+[ {
+  "id" : 1,
+  "nome" : "Dom Casmurro",
+  "ano" : 1899,
+  "autor" : "Machado de Assis",
+  "status" : false,
+  "responsavelId" : null
+}, {
+  "id" : 3,
+  "nome" : "O Nome do Vento",
+  "ano" : 2007,
+  "autor" : "Patrick Rothfuss",
+  "status" : true,
+  "responsavelId" : null
+}, {
+  "id" : 4,
+  "nome" : "Drácula",
+  "ano" : 1897,
+  "autor" : "Bram Stoker",
+  "status" : true,
+  "responsavelId" : null
+}, {
+  "id" : 5,
+  "nome" : "O Pequeno Príncipe",
+  "ano" : 1943,
+  "autor" : "Antoine de Saint-Exupéry",
+  "status" : true,
+  "responsavelId" : null
+} ]
