@@ -12,10 +12,14 @@ import lombok.Setter;
 public class Usuario {
 
     private Long id;
-
     private String nome;
-
     private String email;
-
     private int emprestimos;
+
+    public Usuario(Usuario usuario){
+        this.id = usuario.getId();
+        this.nome = usuario.getNome();
+        this.email = usuario.getEmail();
+        this.emprestimos = usuario.getEmprestimos();
+    }
 }
