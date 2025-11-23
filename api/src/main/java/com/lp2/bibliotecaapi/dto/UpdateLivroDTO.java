@@ -10,4 +10,8 @@ public class UpdateLivroDTO {
     private String nome;
     private String autor;
     private Integer ano;
+
+    public boolean isEmpty(){
+        return nome == null && autor == null && ano == null;
+    }
 }
