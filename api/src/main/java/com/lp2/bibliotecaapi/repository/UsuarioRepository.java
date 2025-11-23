@@ -46,13 +46,13 @@ public class UsuarioRepository {
 
     public List<Usuario> findAll(){return usuarios;}
 
-    public Optional<Usuario> findById(long id){
+    public Optional<Usuario> findById(Long id){
         return usuarios.stream()
-                .filter(l -> l.getId()==id)
+                .filter(l -> l.getId().equals(id))
                 .findFirst();
     }
 
-    public boolean delete(long id){
+    public boolean delete(Long id){
         Optional<Usuario> usuario = findById(id);
         if(usuario.isPresent()){
             if(usuario.get().getEmprestimos() != 0){

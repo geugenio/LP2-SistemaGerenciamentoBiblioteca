@@ -46,13 +46,13 @@ public class LivroRepository{
        return livros;
    }
 
-   public Optional<Livro> findById(long id){
+   public Optional<Livro> findById(Long id){
        return livros.stream()
-               .filter(l -> l.getId() == id)
+               .filter(l -> l.getId().equals(id))
                .findFirst();
    }
 
-    public boolean delete(long id){
+    public boolean delete(Long id){
 
         Optional<Livro> livro = findById(id);
 

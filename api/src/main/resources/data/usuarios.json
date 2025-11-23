@@ -1,1 +1,6 @@
-[]
+[ {
+  "id" : 1,
+  "nome" : "Gabriel Eugenio",
+  "email" : "geugnio12@gmail.com",
+  "emprestimos" : 0
+} ]

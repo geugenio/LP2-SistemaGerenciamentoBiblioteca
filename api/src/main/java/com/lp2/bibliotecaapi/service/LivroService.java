@@ -20,7 +20,7 @@ public class LivroService {
         return lr.findAll();
     }
 
-    public Optional<Livro> findById(Long id){
+    public Optional<Livro> findById(long id){
         return lr.findById(id);
     }
     public Livro save(Livro livro){
@@ -28,7 +28,7 @@ public class LivroService {
         return livro;
     }
 
-    public boolean delete(Long id){
+    public boolean delete(long id){
         return lr.delete(id);
     }
 
