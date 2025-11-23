@@ -22,6 +22,8 @@ public class LivroController {
     @Autowired
     private LivroService ls;
 
+
+    //criar
     @PostMapping("/")
     public ResponseEntity<Livro> registerLivro(@RequestBody Livro dados){
         Livro livro = new Livro(dados);
@@ -29,12 +31,13 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    //pegar todos
     @GetMapping("/")
     public ResponseEntity<List<Livro>> allLivros(){
         List<Livro> livros = ls.findAll();
         return ResponseEntity.ok(livros);
     }
-
+    //pegar por id
     @GetMapping("/{id}")
     public ResponseEntity<Livro> getLivroById(@PathVariable Long id){
         Optional<Livro> livro = ls.findById(id);
@@ -44,14 +47,13 @@ public class LivroController {
         return ResponseEntity.notFound().build();
     }
 
+    //atualizar por id
     @PutMapping("/{id}")
     public ResponseEntity<Livro> updateLivro(@PathVariable Long id, @RequestBody UpdateLivroDTO dto){
         if (dto.isEmpty()){
             return ResponseEntity.badRequest().build();
         }
-
         Optional<Livro> att = ls.update(id, dto);
-
         if(att.isPresent()){
             Livro livro = att.get();
             return ResponseEntity.ok(att.get());
@@ -60,7 +62,7 @@ public class LivroController {
         return ResponseEntity.notFound().build();
     }
 
-
+    //deletar por id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         try{
