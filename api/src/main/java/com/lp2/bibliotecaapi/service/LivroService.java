@@ -1,5 +1,6 @@
 package com.lp2.bibliotecaapi.service;
 
+import com.lp2.bibliotecaapi.dto.UpdateLivroDTO;
 import com.lp2.bibliotecaapi.model.Livro;
 import com.lp2.bibliotecaapi.model.Usuario;
 import com.lp2.bibliotecaapi.repository.LivroRepository;
@@ -31,27 +32,26 @@ public class LivroService {
         return lr.delete(id);
     }
 
-    public Livro update(long id, Livro novosDados) {
-       Livro livro = lr.findById(id).orElseThrow(()-> new NoSuchElementException("Livro não encontrado"));
+    public Optional<Livro> update(long id, UpdateLivroDTO dto){
+        Optional<Livro> existente = lr.findById(id);
 
-       if(novosDados.getNome() != null){
-           livro.setNome(novosDados.getNome());
-       }
-        if (novosDados.getAutor() != null) {
-            livro.setAutor(novosDados.getAutor());
-        }
-        if (novosDados.getAno() != 0) {
-            livro.setAno(novosDados.getAno());
-        }
+        if(existente.isPresent()){
+            Livro livro = existente.get();
 
-        if(novosDados.isStatus() == livro.isStatus()){
+            if (dto.getNome() !=null){
+                livro.setNome(dto.getNome());
+            }
+            if(dto.getAutor() !=null){
+                livro.setAutor(dto.getAutor());
+            }
 
+            if(dto.getAno() != null){
+                livro.setAno(dto.getAno());
+            }
+            lr.saveList();
+            return Optional.of(livro);
         }
-
-        if(novosDados.getResponsavelId() !=null){
-            livro.setResponsavelId(novosDados.getResponsavelId());
-        }
-        return lr.update(id, livro).orElseThrow(() -> new NoSuchElementException("Erro ao atualizar o livro"));
+        return Optional.empty();
     }
 
     public Optional<Livro> emprestar(long idLivro, long idUser){
@@ -67,7 +67,8 @@ public class LivroService {
             livro.setStatus(false); //emprestada
             livro.setResponsavelId(idUser);
 
-            return lr.update(idLivro, livro);
+            lr.saveList(); //salva alterações
+            return Optional.of(livro);
         }
         return Optional.empty();
     }
@@ -85,7 +86,9 @@ public class LivroService {
             livro.setStatus(true); //disponivel
             livro.setResponsavelId(null);
 
-            return lr.update(idLivro, livro);
+            lr.saveList(); //salva alterações
+
+            return Optional.of(livro);
         }
         return Optional.empty();
     }

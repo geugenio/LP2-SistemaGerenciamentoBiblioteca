@@ -34,10 +34,13 @@ public class LivroRepository{
        livro.setStatus(true); // Começa com o livro disponível
        livros.add(livro);
 
-       armazenamento.save(livros);
+       saveList();
 
        return livro;
    }
+    public void saveList(){
+        armazenamento.save(livros);
+    }
 
    public List<Livro> findAll(){
        return livros;
@@ -49,26 +52,8 @@ public class LivroRepository{
                .findFirst();
    }
 
-   public Optional<Livro> update(long id, Livro novosDados){
-       Optional<Livro> livroAntigo = findById(id);
-
-       if(livroAntigo.isPresent()){
-           Livro livro = livroAntigo.get();
-
-           livro.setNome(novosDados.getNome());
-           livro.setAno(novosDados.getAno());
-           livro.setAutor(novosDados.getAutor());
-           livro.setStatus(novosDados.isStatus());
-           livro.setResponsavelId(novosDados.getResponsavelId());
-
-           armazenamento.save(livros);
-
-           return Optional.of(livro);
-       }
-       return Optional.empty();
-   }
-
     public boolean delete(long id){
+
         Optional<Livro> livro = findById(id);
 
         if(livro.isPresent()){
@@ -76,7 +61,7 @@ public class LivroRepository{
                 return false;
             }
             livros.remove(livro.get());
-            armazenamento.save(livros);
+            saveList();
             return true;
         }
         return false;
