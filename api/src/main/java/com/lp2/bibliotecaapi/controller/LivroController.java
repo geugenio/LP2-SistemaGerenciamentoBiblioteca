@@ -1,6 +1,7 @@
 package com.lp2.bibliotecaapi.controller;
 
 
+import com.lp2.bibliotecaapi.dto.UpdateLivroDTO;
 import com.lp2.bibliotecaapi.model.Livro;
 import com.lp2.bibliotecaapi.service.LivroService;
 import org.apache.coyote.Response;
@@ -44,13 +45,19 @@ public class LivroController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Livro> updateLivro(@PathVariable Long id, @RequestBody Livro dados){
-        try{
-            Livro livroAtt = ls.update(id, dados);
-            return ResponseEntity.ok(livroAtt);
-        } catch(RuntimeException e){
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<Livro> updateLivro(@PathVariable Long id, @RequestBody UpdateLivroDTO dto){
+        if (dto.isEmpty()){
+            return ResponseEntity.badRequest().build();
         }
+
+        Optional<Livro> att = ls.update(id, dto);
+
+        if(att.isPresent()){
+            Livro livro = att.get();
+            return ResponseEntity.ok(att.get());
+        }
+
+        return ResponseEntity.notFound().build();
     }
 
 
