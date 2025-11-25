@@ -60,7 +60,7 @@ public class LivroService {
         if(existente.isPresent()){
             Livro livro = existente.get();
 
-            if(!livro.isStatus()){
+            if(!livro.isStatus()){ // se está negativo, o livro não está disponivel
                 throw new RuntimeException("Livro já emprestado");
             }
 

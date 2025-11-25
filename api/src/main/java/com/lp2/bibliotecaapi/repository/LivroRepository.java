@@ -24,20 +24,23 @@ public class LivroRepository{
    }
 
    public Livro save(Livro livro){
-       long novoId;
-       if (livros.isEmpty()) {
-           novoId = 1;
-       } else {
-           novoId = livros.get(livros.size() - 1).getId() + 1;
+       if(livro.getId()==null){
+           long novoId = livros.isEmpty() ? 1 : livros.get(livros.size()-1).getId()+1;
+           livro.setId(novoId);
+           livro.setStatus(true); //começa disponivel
+           livros.add(livro);
+       } else{
+           for (int i = 0; i < livros.size(); i++) {
+               if(livros.get(i).getId().equals(livro.getId())){
+                   livros.set(i, livro);
+                   break;
+               }
+           }
        }
-       livro.setId(novoId);
-       livro.setStatus(true); // Começa com o livro disponível
-       livros.add(livro);
-
        saveList();
-
        return livro;
    }
+
     public void saveList(){
         armazenamento.save(livros);
     }

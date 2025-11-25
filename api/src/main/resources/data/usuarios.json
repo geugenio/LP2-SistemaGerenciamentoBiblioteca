@@ -2,5 +2,15 @@
   "id" : 1,
   "nome" : "Gabriel Eugenio",
   "email" : "geugnio12@gmail.com",
+  "emprestimos" : 1
+}, {
+  "id" : 2,
+  "nome" : "Alexandre Maciel",
+  "email" : "xandemclm@gmail.com",
+  "emprestimos" : 0
+}, {
+  "id" : 3,
+  "nome" : "professor",
+  "email" : "professor@ufrn.edu.br",
   "emprestimos" : 0
 } ]

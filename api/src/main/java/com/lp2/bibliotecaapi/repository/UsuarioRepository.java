@@ -28,19 +28,28 @@ public class UsuarioRepository {
     }
 
     public Usuario save(Usuario usuario){
-        long novoId;
-        if(usuarios.isEmpty()){
-            novoId = 1;
-        } else{
-            novoId = usuarios.get(usuarios.size()-1).getId()+1;
+        if (usuario.getId() == null) {
+            // Criação - Gera um novo ID
+            long novoId;
+            if(usuarios.isEmpty()){
+                novoId = 1;
+            } else{
+                novoId = usuarios.get(usuarios.size()-1).getId()+1;
+            }
+            usuario.setId(novoId);
+            usuario.setEmprestimos(0); // começa com 0 livros a devolver
+            usuarios.add(usuario);
+        } else {
+            // UPDATE - Encontra e substitui o usuario que existe
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i).getId().equals(usuario.getId())) {
+                    usuarios.set(i, usuario);
+                    break;
+                }
+            }
         }
 
-        usuario.setId(novoId);
-        usuario.setEmprestimos(0); //começa com 0 livros a devolver
-        usuarios.add(usuario);
-
         saveList();
-
         return usuario;
     }
 
