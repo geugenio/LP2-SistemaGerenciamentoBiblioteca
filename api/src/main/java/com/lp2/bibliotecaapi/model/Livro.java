@@ -5,8 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -18,7 +17,81 @@ public class Livro {
     private boolean status; //true-> disponivel, false->emprestado
     private Long responsavelId;
 
-    public Livro(Livro livro){
+    
+    
+    public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public int getAno() {
+		return ano;
+	}
+
+
+
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+
+
+
+	public String getAutor() {
+		return autor;
+	}
+
+
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+
+
+	public boolean isStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+
+
+	public Long getResponsavelId() {
+		return responsavelId;
+	}
+
+
+
+	public void setResponsavelId(Long responsavelId) {
+		this.responsavelId = responsavelId;
+	}
+
+
+
+	public Livro(Livro livro){
         this.id = livro.getId();
         this.ano = livro.getAno();
         this.nome = livro.getNome();
