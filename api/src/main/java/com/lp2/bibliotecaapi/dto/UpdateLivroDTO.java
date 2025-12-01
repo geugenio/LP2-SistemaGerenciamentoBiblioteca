@@ -14,19 +14,34 @@ public class UpdateLivroDTO {
     public boolean isEmpty(){
         return nome == null && autor == null && ano == null;
     }
+    
+    public UpdateLivroDTO(String nome, String autor, Integer ano) {
+        this.nome = nome;
+        this.autor = autor;
+        this.ano = ano;
+    	}
 
-	public Object getNome() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getAutor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getAno() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String getNome() { 
+    	return nome; 
+    	}
+    
+    public void setNome(String nome) {
+    	this.nome = nome; 
+    	}
+    
+    public String getAutor() {
+    	return autor; 
+    	}
+    
+    public void setAutor(String autor) {
+    	this.autor = autor; 
+    	}
+    
+    public Integer getAno() {
+    	return ano; 
+    	}
+    
+    public void setAno(Integer ano) {
+    	this.ano = ano; 
+    	}
 }

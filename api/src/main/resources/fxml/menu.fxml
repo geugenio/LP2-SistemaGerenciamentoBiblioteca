@@ -37,7 +37,7 @@
             prefWidth="250.0" prefHeight="45.0"
             style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" />
 
-    <Button fx:id="btnEmprestimos" text="Sair" 
+    <Button fx:id="btnSair" text="Sair" 
             prefWidth="250.0" prefHeight="45.0"
             style="-fx-background-color: #e62f22; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" />
 

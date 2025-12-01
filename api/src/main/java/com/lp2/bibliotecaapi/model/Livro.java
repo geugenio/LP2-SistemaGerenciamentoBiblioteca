@@ -17,7 +17,9 @@ public class Livro {
     private boolean status; //true-> disponivel, false->emprestado
     private Long responsavelId;
 
-    
+    public Livro() {
+    	
+    }
     
     public Long getId() {
 		return id;
@@ -100,24 +102,7 @@ public class Livro {
         this.responsavelId = livro.getResponsavelId();
     }
 
-
-
-	public void setNome(Object nome2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	public void setAutor(Object autor2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	public void setAno(Object ano2) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getStatusTexto() {
+        return status ? "Disponível" : "Emprestado";
+    }
 }

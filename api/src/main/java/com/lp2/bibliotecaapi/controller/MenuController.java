@@ -29,13 +29,15 @@ public class MenuController {
     public Button btnLivros;
     
     @FXML
-    public Button btnEmprestimos;
+    public Button btnSair;
 
     @FXML
     public void initialize() {
         btnUsuarios.setOnAction(this::irParaGerenciarUsuarios);
         
-        btnEmprestimos.setOnAction(event -> System.exit(0));
+        btnSair.setOnAction(event -> System.exit(0));
+        
+        btnLivros.setOnAction(this::irParaGerenciarLivros);
     }
 
     private void irParaGerenciarUsuarios(ActionEvent event) {
@@ -51,4 +53,18 @@ public class MenuController {
             e.printStackTrace();
         }
     }
+    
+    private void irParaGerenciarLivros(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/gerenciar_livros.fxml"));
+            loader.setControllerFactory(context::getBean);
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }

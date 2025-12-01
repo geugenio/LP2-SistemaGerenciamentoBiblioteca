@@ -1,15 +1,1 @@
-[ {
-  "id" : 1,
-  "nome" : "Dracula",
-  "ano" : 1897,
-  "autor" : "Bram Stoker",
-  "status" : false,
-  "responsavelId" : 1
-}, {
-  "id" : 2,
-  "nome" : "Frankenstein",
-  "ano" : 1818,
-  "autor" : "Mary Shelley",
-  "status" : true,
-  "responsavelId" : null
-} ]
+[ ]
