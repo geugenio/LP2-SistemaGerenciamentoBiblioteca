@@ -14,4 +14,19 @@ public class UpdateLivroDTO {
     public boolean isEmpty(){
         return nome == null && autor == null && ano == null;
     }
+
+	public Object getNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAutor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAno() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

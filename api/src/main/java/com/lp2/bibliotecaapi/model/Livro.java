@@ -99,4 +99,25 @@ public class Livro {
         this.status = livro.isStatus();
         this.responsavelId = livro.getResponsavelId();
     }
+
+
+
+	public void setNome(Object nome2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void setAutor(Object autor2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void setAno(Object ano2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
