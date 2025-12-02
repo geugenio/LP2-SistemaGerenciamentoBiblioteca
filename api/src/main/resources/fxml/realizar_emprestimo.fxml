@@ -8,36 +8,37 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f0f2f5;" prefWidth="400.0" prefHeight="300.0"
+<VBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f0f2f5;" prefWidth="350.0" prefHeight="300.0"
       xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.lp2.bibliotecaapi.controller.EditarUsuarioController">
+      fx:controller="com.lp2.bibliotecaapi.controller.RealizarEmprestimoController">
 
     <padding>
         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
     </padding>
 
-    <Label text="Editar Usuário" textFill="#2c3e50">
+    <Label text="Novo Empréstimo" textFill="#2c3e50">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
     <VBox spacing="5.0">
-        <Label text="Nome:" />
-        <TextField fx:id="txtNome" />
+        <Label text="ID do Livro:" />
+        <TextField fx:id="txtIdLivro" promptText="Digite o ID do livro" />
     </VBox>
 
     <VBox spacing="5.0">
-        <Label text="E-mail:" />
-        <TextField fx:id="txtEmail" />
+        <Label text="ID do Usuário:" />
+        <TextField fx:id="txtIdUsuario" promptText="Digite o ID do usuário" />
     </VBox>
 
     <VBox prefHeight="10.0" />
 
     <HBox spacing="15.0" alignment="CENTER_RIGHT">
-        <Button text="Confirmar" onAction="#salvar" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button text="Confirmar" onAction="#confirmar" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;"/>
         <Button text="Cancelar" onAction="#cancelar" style="-fx-background-color: #e62f22; -fx-text-fill: white;"/>
     </HBox>
+    
+    <Label fx:id="lblMensagem" textFill="RED" wrapText="true"/>
 
-    <Label fx:id="lblMensagem" textFill="RED" />
 </VBox>

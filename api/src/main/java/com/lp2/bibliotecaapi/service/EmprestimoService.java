@@ -49,8 +49,8 @@ public class EmprestimoService {
         }
         Livro livro = livroExistente.get();
 
-        if(livro.isStatus()){ //true indica que ainda tá disponiviel
-            throw new RuntimeException("O livro ainda não foi emprestado para ser devolvido.");
+        if(livro.isStatus()){
+            throw new RuntimeException("O livro ainda não foi emprestado.");
         }
         Optional<Usuario> usuarioExistente = usuarioService.findById(idUsuario);
         if(usuarioExistente.isEmpty()){
@@ -59,7 +59,7 @@ public class EmprestimoService {
         Usuario usuario = usuarioExistente.get();
 
         if(!idUsuario.equals(livro.getResponsavelId())){
-            throw new RuntimeException("Este usuário não é o responsável pelo empréstimo do livro em questão.");
+            throw new RuntimeException("Este usuário não é o responsável.");
         }
 
         //logica pra devolver

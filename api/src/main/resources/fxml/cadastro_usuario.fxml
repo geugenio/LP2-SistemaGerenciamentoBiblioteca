@@ -35,11 +35,11 @@
     <VBox prefHeight="10.0" />
 
     <HBox spacing="15.0" alignment="CENTER_RIGHT">
-        <Button text="Cancelar" onAction="#cancelar" 
-                style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
-        
-        <Button text="Salvar" onAction="#salvar" 
+        <Button text="Confirmar" onAction="#salvar" 
                 style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                
+        <Button text="Cancelar" onAction="#cancelar" 
+                style="-fx-background-color: #e62f22; -fx-text-fill: white;"/>
     </HBox>
 
     <Label fx:id="lblMensagem" textFill="RED" />

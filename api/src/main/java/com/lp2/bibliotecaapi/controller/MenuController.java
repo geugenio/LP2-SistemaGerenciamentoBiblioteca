@@ -30,7 +30,7 @@ public class MenuController {
     
     @FXML
     public Button btnSair;
-
+    
     @FXML
     public void initialize() {
         btnUsuarios.setOnAction(this::irParaGerenciarUsuarios);
@@ -38,6 +38,7 @@ public class MenuController {
         btnSair.setOnAction(event -> System.exit(0));
         
         btnLivros.setOnAction(this::irParaGerenciarLivros);
+        
     }
 
     private void irParaGerenciarUsuarios(ActionEvent event) {
@@ -66,5 +67,6 @@ public class MenuController {
             e.printStackTrace();
         }
     }
-    
+   
 }
+    

@@ -143,6 +143,35 @@ public class GerenciarLivrosController {
             mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Por favor, selecione um livro na tabela para excluir.");
         }
     }
+    
+    @FXML
+    public void irParaEmprestimo(ActionEvent event) {
+        abrirModal("/fxml/realizar_emprestimo.fxml", "Realizar Empréstimo");
+        atualizarTabela(); 
+    }
+
+    @FXML
+    public void irParaDevolucao(ActionEvent event) {
+        abrirModal("/fxml/realizar_devolucao.fxml", "Realizar Devolução");
+        atualizarTabela();
+    }
+
+    private void abrirModal(String fxmlPath, String titulo) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            loader.setControllerFactory(context::getBean);
+            Parent root = loader.load();
+            
+            Stage stage = new Stage();
+            stage.setTitle(titulo);
+            stage.setScene(new Scene(root));
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void voltarMenu(ActionEvent event) throws IOException {

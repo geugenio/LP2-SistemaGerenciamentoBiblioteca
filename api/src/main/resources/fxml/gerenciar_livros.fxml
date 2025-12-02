@@ -36,7 +36,7 @@
         </columnResizePolicy>
     </TableView>
 
-    <HBox alignment="CENTER" spacing="15.0">
+<HBox alignment="CENTER" spacing="10.0">
         <Button text="Adicionar" onAction="#irParaCadastro"
                 style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;"/>
         
@@ -45,6 +45,16 @@
         
         <Button text="Excluir" onAction="#excluirLivro"
                 style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <Label text="|" textFill="#bdc3c7" >
+            <font><Font size="20.0"/></font>
+        </Label>
+
+        <Button text="Emprestar" onAction="#irParaEmprestimo"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        
+        <Button text="Devolver" onAction="#irParaDevolucao"
+                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold;"/>
     </HBox>
 
     <Button text="Voltar" onAction="#voltarMenu" prefWidth="100.0"

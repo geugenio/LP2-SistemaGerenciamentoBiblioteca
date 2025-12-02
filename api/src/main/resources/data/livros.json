@@ -1,1 +1,26 @@
-[ ]
+[
+  {
+    "id": 1,
+    "nome": "Diário de um Banana",
+    "autor": "Jeff Kinney",
+    "ano": 2007,
+    "status": true,
+    "responsavelId": null
+  },
+  {
+    "id": 2,
+    "nome": "Dom Casmurro",
+    "autor": "Machado de Assis",
+    "ano": 1899,
+    "status": true,
+    "responsavelId": null
+  },
+  {
+    "id": 3,
+    "nome": "O Hobbit",
+    "autor": "J.R.R. Tolkien",
+    "ano": 1937,
+    "status": true,
+    "responsavelId": null
+  }
+]
