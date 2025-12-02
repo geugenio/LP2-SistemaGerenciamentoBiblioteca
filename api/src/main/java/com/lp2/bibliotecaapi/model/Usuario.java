@@ -1,19 +1,8 @@
 package com.lp2.bibliotecaapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "usuarios")
 public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     private String nome;
     private String email;
     private int emprestimos;
@@ -28,7 +17,7 @@ public class Usuario {
         this.emprestimos = usuario.getEmprestimos();
     }
 
-
+    // Getters e Setters
     public Long getId() {
         return id;
     }

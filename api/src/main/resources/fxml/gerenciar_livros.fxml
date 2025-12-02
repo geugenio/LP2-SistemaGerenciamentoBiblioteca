@@ -30,6 +30,7 @@
             <TableColumn fx:id="colAutor" text="Autor" prefWidth="150.0" />
             <TableColumn fx:id="colAno" text="Ano" prefWidth="80.0" />
             <TableColumn fx:id="colStatus" text="Status" prefWidth="100.0" />
+            <TableColumn fx:id="colResponsavel" text="Responsável" prefWidth="150.0" />
         </columns>
         <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

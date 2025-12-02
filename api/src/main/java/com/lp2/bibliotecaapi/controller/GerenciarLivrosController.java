@@ -18,6 +18,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+import com.lp2.bibliotecaapi.service.UsuarioService;
+import javafx.beans.property.SimpleStringProperty;
+import com.lp2.bibliotecaapi.model.Usuario;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -27,7 +30,8 @@ public class GerenciarLivrosController {
 
     private final LivroService livroService;
     private final ApplicationContext context;
-
+    private final UsuarioService usuarioService;
+    
     @FXML 
     private TableView<Livro> tabelaLivros;
     
@@ -45,9 +49,13 @@ public class GerenciarLivrosController {
     
     @FXML 
     private TableColumn<Livro, String> colStatus;
+    
+    @FXML 
+    private TableColumn<Livro, String> colResponsavel;
 
-    public GerenciarLivrosController(LivroService livroService, ApplicationContext context) {
+    public GerenciarLivrosController(LivroService livroService, UsuarioService usuarioService, ApplicationContext context) {
         this.livroService = livroService;
+        this.usuarioService = usuarioService;
         this.context = context;
     }
 
@@ -59,7 +67,23 @@ public class GerenciarLivrosController {
         colAno.setCellValueFactory(new PropertyValueFactory<>("ano"));
         
         colStatus.setCellValueFactory(new PropertyValueFactory<>("statusTexto"));
+        
+        colResponsavel.setCellValueFactory(cellData -> {
+            Livro livro = cellData.getValue();
+            Long responsavelId = livro.getResponsavelId();
 
+            if (responsavelId == null) {
+                return new SimpleStringProperty("-");
+            }
+
+            Optional<Usuario> usuario = usuarioService.findById(responsavelId);
+            if (usuario.isPresent()) {
+                return new SimpleStringProperty(usuario.get().getNome());
+            } else {
+                return new SimpleStringProperty("ID: " + responsavelId + " (Ñ Enc.)");
+            }
+        });
+        
         atualizarTabela();
     }
 
