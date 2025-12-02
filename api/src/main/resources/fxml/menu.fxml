@@ -30,14 +30,16 @@
     <VBox prefHeight="20.0" />
 
     <Button fx:id="btnUsuarios" text="Gerenciar Usuários" 
-            prefWidth="250.0" prefHeight="45.0"
+            prefWidth="330.0" prefHeight="45.0"
             style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" />
 
     <Button fx:id="btnLivros" text="Gerenciar Livros" 
-            prefWidth="250.0" prefHeight="45.0"
+            prefWidth="330.0" prefHeight="45.0"
             style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" />
 
+	<VBox prefHeight="30.0" />
+
     <Button fx:id="btnSair" text="Sair" 
-            prefWidth="250.0" prefHeight="45.0"
+            prefWidth="200.0" prefHeight="35.0"
             style="-fx-background-color: #e62f22; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" />
 </VBox>
