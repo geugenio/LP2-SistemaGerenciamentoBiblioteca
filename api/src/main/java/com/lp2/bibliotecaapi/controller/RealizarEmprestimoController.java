@@ -41,7 +41,7 @@ public class RealizarEmprestimoController {
                 mostrarAlerta("Sucesso", "Empréstimo realizado com sucesso!");
                 fecharJanela();
             } else {
-                lblMensagem.setText("Livro ou Usuário não encontrados com esses IDs.");
+                lblMensagem.setText("Livro ou Usuário não encontrados.");
             }
 
         } catch (NumberFormatException e) {
