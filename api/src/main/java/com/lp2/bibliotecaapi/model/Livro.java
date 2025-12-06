@@ -3,10 +3,6 @@ package com.lp2.bibliotecaapi.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
-
 public class Livro {
     private Long id;
     private String nome;
